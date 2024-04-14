@@ -12,7 +12,7 @@ Welcome to react-layered! If you've ever found yourself lost in the jungle of z-
 
 ### Installation
 
-First, install the package using npm:
+First, install the package using your favourite package manager:
 
 ```bash
 npm install react-layered
