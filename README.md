@@ -1,6 +1,6 @@
-# react-zindex
+# react-layered
 
-Welcome to `react-zindex`! If you've ever found yourself lost in the jungle of z-index layers, fighting the chaos of overlapping UI elements, then buckle up! This tiny, mighty package is your guide to taming that wild z-index safari in your React projects. 🌿👓
+Welcome to react-layered! If you've ever found yourself lost in the jungle of z-index layers, fighting the chaos of overlapping UI elements, then buckle up! This tiny, mighty package is your guide to taming that wild z-index safari in your React projects. 🌿👓
 
 ## Features
 
@@ -15,11 +15,11 @@ Welcome to `react-zindex`! If you've ever found yourself lost in the jungle of z
 First, install the package using npm:
 
 ```bash
-npm install react-zindex
+npm install react-layered
 OR
-yarn add react-zindex
+yarn add react-layered
 OR
-pnpm add react-zindex
+pnpm add react-layered
 ```
 
 ### Configuring Layers
@@ -28,7 +28,7 @@ Create a hook to configure your layers. This example sets up common UI layers li
 
 ```javascript
 // hooks/useLayer.ts
-import { useLayerConfig } from "react-zindex";
+import { useLayerConfig } from "react-layered";
 
 export default useLayerConfig([
   "background",
@@ -48,7 +48,7 @@ To use a layer in your components:
 ### Using only the zIndex
 
 ```javascript
-import useLayer from "./hooks/useLayer";
+import useLayer from "../hooks/useLayer";
 
 const MyToast = () => {
   const { zIndex } = useLayer("toast");
@@ -59,7 +59,7 @@ const MyToast = () => {
 ### Using the style object
 
 ```javascript
-import useLayer from "./hooks/useLayer";
+import useLayer from "../hooks/useLayer";
 
 const MyModal = () => {
   const { style } = useLayer("modal");
@@ -71,7 +71,14 @@ const MyModal = () => {
 
 ### `useLayerConfig(layers, options)`
 
-- REQUIRED: **layers:** Array of strings representing the names of the layers.
-- OPTIONAL: **options:** Configuration object with properties:
-  - **start:** Starting zIndex value.
-  - **step:** Step increment between each zIndex.
+| Parameter | Required | Type       | Description                                                      |
+| --------- | -------- | ---------- | ---------------------------------------------------------------- |
+| `layers`  | ✅       | `string[]` | An array of strings defining the layers in the system.           |
+| `config`  | ❌       | `Config`   | An optional configuration object specifying additional settings. |
+
+#### Config Object Properties
+
+| Property | Required | Type     | Default | Description                                 |
+| -------- | -------- | -------- | ------- | ------------------------------------------- |
+| `start`  | ❌       | `number` | `1`     | The initial value to start the zIndex with. |
+| `step`   | ❌       | `number` | `1`     | The increment between each layer.           |
