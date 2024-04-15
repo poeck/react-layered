@@ -40,5 +40,9 @@
     "typescript": "^5.2.2",
     "vite": "^5.2.0",
     "vite-plugin-dts": "^3.8.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/poeck/react-layered.git"
   }
 }
