@@ -128,7 +128,7 @@ Use this function to generate your own `useLayer` hook.
 | `start`   | ❌       | number  | 1       | The initial value to start the zIndex with. |
 | `reverse` | ❌       | boolean | false   | Reverse the layer order.                    |
 
-### `useLayer(key[, index])`
+### `useLayer(key[, slot])`
 
 This function is a custom hook that you can create using useLayerConfig.
 
