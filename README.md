@@ -5,7 +5,7 @@ Welcome to react-layered! If you've ever found yourself lost in the jungle of z-
 ## Features
 
 - 🔒 **Type Safe:** Built with TypeScript, offering that snug, error-proof comfort.
-- 🪶 **Super Lightweight:** Less than 1KB. Using zero dependencies. It's almost like it's not even there!
+- 🪶 **Super Lightweight:** Less than 2KB. Using zero dependencies. It's almost like it's not even there!
 - 🧘 **Easy Configuration:** Set up your layers once, use them with zen-like calm.
 
 ## Setup
