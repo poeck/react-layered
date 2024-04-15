@@ -11,7 +11,7 @@ export function useLayerConfig<
 
     if (zIndex < 0) throw new Error("Invalid layer key");
 
-    const style = { zIndex };
+    const style = { zIndex: zIndex + " !important" };
     return { style, zIndex };
   };
 }
