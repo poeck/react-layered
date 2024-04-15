@@ -34,7 +34,7 @@ export default useLayerConfig([
   "navigation",
   "footer",
   { key: "modal", parts: ["backdrop", "content"] },
-  { key: "toast", slots: 20 },
+  { key: "toast", slots: 100 },
   "dropdown",
   "tooltip",
 ]);
@@ -72,7 +72,7 @@ const MyTooltip = () => {
 };
 ```
 
-### Using the parts
+### Using different parts of a layer
 
 ```javascript
 import useLayer from "../hooks/useLayer";
@@ -81,6 +81,26 @@ const MyToast = ({ index }: { index: number }) => {
   const { zIndex } = useLayer("tooltip", index);
   return <div style={{ zIndex }}>This works with multiple toasts!</div>;
 };
+```
+
+### Using different stacking contexts
+
+```javascript
+// hooks/useLayer.ts
+import { useLayerConfig } from "react-layered";
+
+export const useFixedLayer = useLayerConfig([
+  "modal",
+  "alert",
+  "toast",
+  "tooltip",
+]);
+
+export const useAbsoluteLayer = useLayerConfig([
+  "navigation",
+  "footer",
+  "dropdown",
+]);
 ```
 
 ## API
