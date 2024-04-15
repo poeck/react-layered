@@ -15,6 +15,7 @@
   "files": [
     "dist"
   ],
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "tsc --p ./tsconfig.build.json && vite build",
