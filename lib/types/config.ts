@@ -1,4 +1,4 @@
-export interface LayerConfig {
+export interface LayersConfig {
   start?: number;
-  step?: number;
+  reverse?: boolean;
 }

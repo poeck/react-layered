@@ -2,10 +2,7 @@ import { useLayerConfig } from "../../lib/main";
 
 export default useLayerConfig([
   "background",
-  "navigation",
-  "footer",
-  "modal",
-  "alert",
-  "toast",
+  { key: "modal", parts: ["background", "content"] },
+  { key: "toast", slots: 3 },
   "tooltip",
 ]);
