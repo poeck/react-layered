@@ -14,27 +14,10 @@ Welcome to react-layered! If you've ever found yourself lost in the jungle of z-
 
 First, install the package using your favourite package manager:
 
-NPM:
-
 ```bash
 npm install react-layered
-```
-
-Yarn:
-
-```bash
 yarn add react-layered
-```
-
-pnpm:
-
-```bash
 pnpm add react-layered
-```
-
-bun:
-
-```bash
 bun add react-layered
 ```
 
@@ -42,35 +25,33 @@ bun add react-layered
 
 Create a hook to configure your layers. This example sets up common UI layers like background, navigation, and modals:
 
-````javascript
+```javascript
 // hooks/useLayer.ts
-import { useLayerConfig } from 'react-layered';
+import { useLayerConfig } from "react-layered";
 
 // Initialize the layer configuration with an array of layer descriptors.
 // Lower layers in the list have a higher z-index by default.
 export default useLayerConfig([
   // Define simple layers using strings.
-  'navigation',
-  'footer',
-  'dropdown',
+  "navigation",
+  "footer",
+  "dropdown",
 
   // Define a layer with additional properties using an object.
-  { key: 'tooltip' },
+  { key: "tooltip" },
 
   // Allocate a range of zIndex values for a layer by defining 'slots'.
   // For example, allocate 100 zIndex slots for the "toast" layer.
   // You can find an example how to use the slots below.
-  { key: 'toast', slots: 100 },
+  { key: "toast", slots: 100 },
 
   // Create composite layers with multiple sub-layers using the 'parts' property.
   // You can find an example how to access the parts below.
-  { key: 'modal', parts: ['backdrop', 'content'] },
+  { key: "modal", parts: ["backdrop", "content"] },
 ]);
-
+```
 
 ## Usage
-
-To use a layer in your components:
 
 ### Using the style object
 
@@ -79,10 +60,9 @@ import useLayer from "../hooks/useLayer";
 
 const MyNavigation = () => {
   const { style } = useLayer("navigation");
-
   return <div style={style}>This is a navigation!</div>;
 };
-````
+```
 
 ### Using only the zIndex
 
@@ -181,3 +161,7 @@ This function is a custom hook that you can create using useLayerConfig.
 | --------- | -------- | ------ | --------------------------------------------------------------------------------------------- |
 | `key`     | ✅       | string | The key of the layer.                                                                         |
 | `slot`    | ❌       | number | The slot to be used, starting at 0. Applicable only when 'slots' is configured for the layer. |
+
+```
+
+```
