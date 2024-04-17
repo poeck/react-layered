@@ -100,7 +100,7 @@ import useLayer from "../hooks/useLayer";
 const MyToast = ({ index }: { index: number }) => {
   // Pass the index of the item as the second argument.
   // Make sure it starts counting from 0.
-  const { zIndex } = useLayer("tooltip", index);
+  const { zIndex } = useLayer("toast", index);
   return <div style={{ zIndex }}>This works with multiple toasts!</div>;
 };
 ```
