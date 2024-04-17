@@ -40,8 +40,6 @@ export function useLayerConfig<
 
       let layerObjects: LayerObject<string>[] = layers.map((layer) => {
         if (typeof layer == "string") return { key: layer };
-        if (layer.parts) {
-        }
         if (layer.parts && config?.reverse)
           return { ...layer, parts: [...layer.parts].reverse() };
         return layer;

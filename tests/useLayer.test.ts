@@ -12,7 +12,9 @@ function useLayer(
       useLayerConfig(layers, config)(test.key, test.slot)
     );
 
-    expect(result.current.zIndex).toBe(test.zIndex);
+    expect(result.current.zIndex, `${test.key} with slot ${test.slot}`).toBe(
+      test.zIndex
+    );
   });
 }
 
@@ -139,5 +141,22 @@ describe("useLayerConfig", () => {
         { key: "toast", zIndex: 8 },
       ]
     );
+  });
+
+  it("should throw on invalid key", () => {
+    expect(() =>
+      renderHook(() =>
+        useLayerConfig(["foo", "bar"])(
+          // @ts-expect-error
+          "invalid"
+        )
+      )
+    ).toThrowError(/Invalid layer key/);
+  });
+
+  it("should throw on slot without slots", () => {
+    expect(() =>
+      renderHook(() => useLayerConfig(["foo", "bar"])("foo", 2))
+    ).toThrowError(/Cannot use 'slot'/);
   });
 });
