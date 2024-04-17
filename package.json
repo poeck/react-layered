@@ -21,6 +21,7 @@
     "build": "tsc --p ./tsconfig.build.json && vite build",
     "prepublishOnly": "pnpm run build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "test": "vitest --root tests/",
     "preview": "vite preview"
   },
   "peerDependencies": {
@@ -28,6 +29,8 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@testing-library/react": "^15.0.2",
+    "@testing-library/react-hooks": "^8.0.1",
     "@types/node": "^20.12.7",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
@@ -38,9 +41,11 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
     "glob": "^10.3.12",
+    "jsdom": "^24.0.0",
     "typescript": "^5.2.2",
     "vite": "^5.2.0",
-    "vite-plugin-dts": "^3.8.2"
+    "vite-plugin-dts": "^3.8.2",
+    "vitest": "^1.5.0"
   },
   "repository": {
     "type": "git",
