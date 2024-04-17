@@ -1,7 +1,7 @@
 import useLayer from "./hooks/useLayer";
 
 export default function App() {
-  const { zIndex } = useLayer("background");
+  const modal = useLayer("modal");
 
   return (
     <h1
@@ -12,8 +12,6 @@ export default function App() {
         top: "50%",
         transform: "translate(-50%, -50%)",
       }}
-    >
-      {zIndex}
-    </h1>
+    ></h1>
   );
 }

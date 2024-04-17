@@ -42,28 +42,31 @@ bun add react-layered
 
 Create a hook to configure your layers. This example sets up common UI layers like background, navigation, and modals:
 
-```javascript
+````javascript
 // hooks/useLayer.ts
-import { useLayerConfig } from "react-layered";
+import { useLayerConfig } from 'react-layered';
 
+// Initialize the layer configuration with an array of layer descriptors.
+// Lower layers in the list have a higher z-index by default.
 export default useLayerConfig([
-  // Use simple strings to define basic layers.
-  "navigation",
-  "footer",
-  "dropdown",
+  // Define simple layers using strings.
+  'navigation',
+  'footer',
+  'dropdown',
 
-  // Or use objects to apply more properties.
-  { key: "tooltip" },
+  // Define a layer with additional properties using an object.
+  { key: 'tooltip' },
 
-  // Allocate a block of zIndex values for a layer by specifying 'slots'.
-  // Example: 100 zIndex slots for the "toast" layer.
-  { key: "toast", slots: 100 },
+  // Allocate a range of zIndex values for a layer by defining 'slots'.
+  // For example, allocate 100 zIndex slots for the "toast" layer.
+  // You can find an example how to use the slots below.
+  { key: 'toast', slots: 100 },
 
-  // Define composite layers with sub-parts using the 'parts' property.
-  // This configuration will create "modal.backdrop" and "modal.content".
-  { key: "modal", parts: ["backdrop", "content"] },
+  // Create composite layers with multiple sub-layers using the 'parts' property.
+  // You can find an example how to access the parts below.
+  { key: 'modal', parts: ['backdrop', 'content'] },
 ]);
-```
+
 
 ## Usage
 
@@ -79,7 +82,7 @@ const MyNavigation = () => {
 
   return <div style={style}>This is a navigation!</div>;
 };
-```
+````
 
 ### Using only the zIndex
 
@@ -89,6 +92,26 @@ import useLayer from "../hooks/useLayer";
 const MyTooltip = () => {
   const { zIndex } = useLayer("tooltip");
   return <div style={{ zIndex }}>This is a tooltip!</div>;
+};
+```
+
+### Using different parts of a layer
+
+```javascript
+import useLayer from "../hooks/useLayer";
+
+const MyModal = () => {
+  const { style } = useLayer("modal");
+
+  // Or like this:
+  // const { style: backgroundStyle } = useLayer("modal.background");
+  // const { style: contentStyle } = useLayer("modal.content");
+
+  return (
+    <div style={style.background}>
+      <p style={style.content}>Hello, I'm on top!</p>
+    </div>
+  );
 };
 ```
 
@@ -102,23 +125,6 @@ const MyToast = ({ index }: { index: number }) => {
   // Make sure it starts counting from 0.
   const { zIndex } = useLayer("toast", index);
   return <div style={{ zIndex }}>This works with multiple toasts!</div>;
-};
-```
-
-### Using different parts of a layer
-
-```javascript
-import useLayer from "../hooks/useLayer";
-
-const MyModal = () => {
-  const { style: backgroundStyle } = useLayer("modal.background");
-  const { style: contentStyle } = useLayer("modal.content");
-
-  return (
-    <div style={backgroundStyle}>
-      <p style={contentStyle}>Hello, I'm on top!</p>
-    </div>
-  );
 };
 ```
 
