@@ -1,3 +1,5 @@
+"use client";
+
 import { LayersConfig } from "../types/config";
 import { LayersType, LayerObject } from "../types/layer";
 import { useMemo } from "react";
